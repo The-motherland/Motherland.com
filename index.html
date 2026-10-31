@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Motherland — AI Film Studio</title>
+<style>
+:root{--bg:#f6f2ea;--card:#fffdf8;--ink:#1c1a17;--mute:#6b645a;--line:#ddd4c4;--accent:#b3321f;--accent-ink:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14120f;--card:#1e1b17;--ink:#f1ebe0;--mute:#a49b8c;--line:#38332b;--accent:#e2573f;--accent-ink:#14120f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14120f;--card:#1e1b17;--ink:#f1ebe0;--mute:#a49b8c;--line:#38332b;--accent:#e2573f;--accent-ink:#14120f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:system-ui,sans-serif;font-size:14px}
+nav b{letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+nav a{color:var(--mute);text-decoration:none;margin-left:14px}
+h1{font-size:clamp(2.2rem,9vw,3.6rem);line-height:1.05;margin:40px 0 16px;letter-spacing:-.02em}
+h2{font-size:1.6rem;margin:0 0 10px}
+.lead{font-size:1.15rem;color:var(--mute);max-width:34em}
+section{padding:44px 0;border-top:1px solid var(--line)}
+.tag{font:12px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+button,.btn{font:600 14px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:10px 16px;border-radius:999px;cursor:pointer}
+button[aria-pressed="true"],button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.row small{display:block;color:var(--mute);font:13px/1.4 system-ui,sans-serif}
+.row strong{font:600 15px system-ui,sans-serif}
+.sw{appearance:none;width:46px;height:26px;border-radius:99px;background:var(--line);position:relative;cursor:pointer;flex:none;transition:.2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.sw:checked{background:var(--accent)}.sw:checked::after{left:23px}
+.sw:disabled{opacity:.6;cursor:not-allowed}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font:600 15px system-ui,sans-serif}
+details p{margin:10px 0 0;color:var(--mute)}
+label{display:block;font:600 13px system-ui,sans-serif;margin:14px 0 6px}
+input[type=text],select,textarea{width:100%;font:16px system-ui,sans-serif;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+pre{white-space:pre-wrap;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:14px;font:13px/1.5 ui-monospace,monospace;margin:16px 0 12px}
+.note{font:13px/1.5 system-ui,sans-serif;color:var(--mute)}
+footer{padding:30px 0 40px;border-top:1px solid var(--line);font:13px system-ui,sans-serif;color:var(--mute)}
+.status{font:600 13px system-ui,sans-serif;color:var(--accent);min-height:1.2em;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>The Motherland</b><span><a href="#studio">Studio</a><a href="#privacy">Privacy</a><a href="#brief">Brief</a></span></nav>
+
+<header>
+<h1>Stories made with AI, held to a human standard.</h1>
+<p class="lead">The Motherland is a micro film company producing AI-assisted movies. This site has no video, no trackers and no accounts. Just who we are, and how we protect you.</p>
+</header>
+
+<section id="studio">
+<div class="tag">How we work</div>
+<h2>Three stages, one small team</h2>
+<div class="tabs" id="tabs"></div>
+<div class="card" id="tabbody"></div>
+</section>
+
+<section id="privacy">
+<div class="tag">Policy &amp; privacy</div>
+<h2>Your data stays with you</h2>
+<p class="lead">We collect nothing by default. The choices below are saved only in this browser, on this device, and are never sent to us.</p>
+<div class="card" style="margin-top:18px">
+<div class="row"><div><strong>Essential memory</strong><small>Remembers your choices on this page. Always on.</small></div><input class="sw" type="checkbox" checked disabled aria-label="Essential memory"></div>
+<div class="row"><div><strong>Remember my theme</strong><small>Keeps light or dark mode between visits.</small></div><input class="sw" type="checkbox" id="p-theme" aria-label="Remember my theme"></div>
+<div class="row"><div><strong>Remember my brief draft</strong><small>Saves what you type below until you clear it.</small></div><input class="sw" type="checkbox" id="p-draft" aria-label="Remember my brief draft"></div>
+<div class="tabs" style="margin:16px 0 0">
+<button id="theme">Toggle theme</button>
+<button id="erase">Erase everything</button>
+</div>
+<div class="status" id="pstatus" role="status"></div>
+</div>
+
+<div style="margin-top:22px">
+<details><summary>What we never do</summary><p>We never sell, share or rent personal information. We use no advertising, fingerprinting or third-party analytics on this site.</p></details>
+<details><summary>Your scripts and ideas</summary><p>Anything you share with us for a project remains yours. We sign a confidentiality agreement before reading any pitch, and we do not use client material to train AI models.</p></details>
+<details><summary>How we use AI responsibly</summary><p>We disclose AI use in our productions, we do not imitate real people without written consent, and a human reviews every final frame.</p></details>
+<details><summary>Your rights</summary><p>You can ask what we hold about you, request correction or deletion, and withdraw consent at any time. Because this site stores nothing on our servers, deleting your browser data erases it all.</p></details>
+</div>
+</section>
+
+<section id="brief">
+<div class="tag">Start a conversation</div>
+<h2>Draft your project brief</h2>
+<p class="lead">Build a brief here. It is assembled on your device only. Nothing is uploaded, and you choose when and where to send it.</p>
+<div class="card" style="margin-top:18px">
+<label for="b-name">Your name</label><input type="text" id="b-name" autocomplete="off">
+<label for="b-type">Project type</label>
+<select id="b-type"><option>Short film</option><option>Feature concept</option><option>Title sequence</option><option>Pre-visualization</option></select>
+<label for="b-idea">Your idea</label><textarea id="b-idea"></textarea>
+<pre id="out"></pre>
+<div class="tabs" style="margin:0"><button class="primary" id="copy">Copy brief</button><button id="clear">Clear</button></div>
+<div class="status" id="bstatus" role="status"></div>
+<p class="note">Send your copied brief to the contact address we will share with you after the first hello.</p>
+</div>
+</section>
+
+<footer>© 2026 The Motherland. Policy last updated October 31, 2026.</footer>
+</div>
+
+<script>
+var S={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}},del:function(k){try{localStorage.removeItem(k)}catch(e){}}};
+var $=function(i){return document.getElementById(i)};
+
+var stages=[
+["Develop","We shape the story first: logline, characters, tone and world. AI helps us explore many directions quickly, but writers choose the one that is true."],
+["Generate","Images, motion and sound are drafted with AI tools under clear rules: licensed or original inputs only, no impersonation, and every shot reviewed by a person."],
+["Finish","Editors and sound designers refine the cut by hand. Credits state exactly where AI was used, so audiences always know."]
+];
+var tabs=$("tabs");
+stages.forEach(function(s,i){var b=document.createElement("button");b.textContent=s[0];b.onclick=function(){show(i)};tabs.appendChild(b)});
+function show(i){[].forEach.call(tabs.children,function(b,j){b.setAttribute("aria-pressed",j===i)});$("tabbody").innerHTML="<strong>"+stages[i][0]+"</strong><p style='margin:8px 0 0;color:var(--mute)'>"+stages[i][1]+"</p>"}
+show(0);
+
+function say(id,t){$(id).textContent=t;setTimeout(function(){$(id).textContent=""},2500)}
+function applyTheme(t){if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.removeAttribute("data-theme")}
+$("p-theme").checked=S.get("tm-p-theme")==="1";
+$("p-draft").checked=S.get("tm-p-draft")==="1";
+if($("p-theme").checked)applyTheme(S.get("tm-theme"));
+
+$("p-theme").onchange=function(){if(this.checked){S.set("tm-p-theme","1");var t=document.documentElement.getAttribute("data-theme");if(t)S.set("tm-theme",t)}else{S.del("tm-p-theme");S.del("tm-theme")}};
+$("p-draft").onchange=function(){if(this.checked){S.set("tm-p-draft","1");saveDraft()}else{S.del("tm-p-draft");S.del("tm-draft")}};
+$("theme").onclick=function(){var dark=window.matchMedia("(prefers-color-scheme: dark)").matches;var cur=document.documentElement.getAttribute("data-theme")||(dark?"dark":"light");var n=cur==="dark"?"light":"dark";applyTheme(n);if($("p-theme").checked)S.set("tm-theme",n)};
+
+function render(){var n=$("b-name").value.trim()||"(your name)";var i=$("b-idea").value.trim()||"(describe your idea)";$("out").textContent="Project brief\nFrom: "+n+"\nType: "+$("b-type").value+"\nIdea: "+i}
+function saveDraft(){if($("p-draft").checked)S.set("tm-draft",JSON.stringify({n:$("b-name").value,t:$("b-type").value,i:$("b-idea").value}))}
+try{var d=S.get("tm-draft");if(d&&$("p-draft").checked){d=JSON.parse(d);$("b-name").value=d.n||"";$("b-type").value=d.t||"Short film";$("b-idea").value=d.i||""}}catch(e){}
+["b-name","b-type","b-idea"].forEach(function(id){$(id).addEventListener("input",function(){render();saveDraft()})});
+render();
+
+$("copy").onclick=function(){var t=$("out").textContent;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){say("bstatus","Copied to your clipboard.")},function(){sel()})}else sel();function sel(){var r=document.createRange();r.selectNodeContents($("out"));var s=window.getSelection();s.removeAllRanges();s.addRange(r);say("bstatus","Brief selected. Copy it manually.")}};
+$("clear").onclick=function(){$("b-name").value="";$("b-idea").value="";render();S.del("tm-draft");say("bstatus","Cleared.")};
+$("erase").onclick=function(){["tm-p-theme","tm-p-draft","tm-theme","tm-draft"].forEach(S.del);$("p-theme").checked=false;$("p-draft").checked=false;applyTheme(null);$("b-name").value="";$("b-idea").value="";render();say("pstatus","Everything stored on this device was erased.")};
+</script>
+</body>
+</html>
